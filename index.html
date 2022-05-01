@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="bootstrap.css" />
+		<link rel="stylesheet" href="style.css" />
+		<script src="generator.js" defer></script>
+		<script src="script.js" defer></script>
+		<title>Inventory</title>
+	</head>
+	<body>
+		<div class="container">
+			<div class="input-group shadow mb-5 bg-body rounded">
+				<input
+					type="search"
+					class="form-control search"
+					placeholder="Enter Item Number"
+					aria-label="Enter Item Number"
+					aria-describedby="basic-addon2"
+					id="text"
+					maxlength="20"
+				/><input
+					value="0"
+					min="0"
+					type="number"
+					class="form-control count"
+					placeholder="Enter Count"
+					aria-label="Enter Count"
+					aria-describedby="basic-addon2"
+					id="count"
+				/>
+				<input
+					type="search"
+					class="form-control item-name"
+					placeholder="Enter Item Name"
+					aria-label="Enter Item Name"
+					aria-describedby="basic-addon2"
+					id="item-name"
+				/>
+				<div class="input-group-append">
+					<button class="btn btn-primary" type="button" id="generate">Generate Barcode</button>
+				</div>
+			</div>
+			<button class="btn btn-outline-danger" type="button" id="remove-all">Remove All Items</button>
+			<ul class="list"></ul>
+		</div>
+	</body>
+</html>
