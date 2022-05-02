@@ -1,18 +1,17 @@
 const inputText = document.querySelector("#text");
-const generetaeButton = document.querySelector("#generate");
+const generateButton = document.querySelector("#generate");
 const countInput = document.querySelector("#count");
 const itemNameInput = document.querySelector(".item-name");
 const container = document.querySelector(".container");
 const list = document.querySelector(".list");
 const removeAll = document.querySelector("#remove-all");
-const itemsArr = [];
+let itemsArr = [];
 
 class ListItem {
 	constructor(itemNumber, count, itemName) {
 		this.itemNumber = itemNumber;
 		this.count = count;
 		this.itemName = itemName;
-		itemsArr.push(this);
 		this.createBarcode();
 		this.addItem();
 	}
@@ -48,7 +47,11 @@ class ListItem {
 		const deleteButton = document.createElement("button");
 		deleteButton.textContent = "X";
 		deleteButton.classList.add("delete-button", "btn", "btn-danger", "btn-sm");
-		deleteButton.onclick = () => this.li.remove();
+		deleteButton.addEventListener("click", () => {
+			this.li.remove();
+			itemsArr = itemsArr.filter(e => e !== this);
+			console.log(itemsArr);
+		});
 		this.deleteButton = deleteButton;
 	}
 
@@ -82,6 +85,7 @@ class ListItem {
 		bigContainer.append(this.deleteButton, this.countField);
 		const li = document.createElement("li");
 		this.li = li;
+		li.listItem = this;
 		li.append(this.editItemName, this.barcode);
 		li.appendChild(bigContainer);
 		list.appendChild(li);
@@ -93,7 +97,7 @@ class ListItem {
 	}
 }
 
-generetaeButton.addEventListener("click", clickHandler);
+generateButton.addEventListener("click", clickHandler);
 
 inputText.addEventListener("keydown", () => {
 	event.which === 13 && clickHandler();
@@ -117,4 +121,5 @@ function clickHandler() {
 	const { value } = inputText;
 	if (!value || itemsArr.includes(value)) return;
 	const item = new ListItem(value, countInput.value, itemNameInput.value);
+	itemsArr.push(item);
 }
