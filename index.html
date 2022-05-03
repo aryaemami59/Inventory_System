@@ -11,40 +11,49 @@
 		<title>Inventory</title>
 	</head>
 	<body>
-		<div class="container">
-			<div class="input-group shadow mb-5 bg-body rounded">
-				<input
-					type="search"
-					class="form-control search"
-					placeholder="Enter Item Number"
-					aria-label="Enter Item Number"
-					aria-describedby="basic-addon2"
-					id="text"
-					maxlength="20"
-				/><input
-					value="0"
-					min="0"
-					type="number"
-					class="form-control count"
-					placeholder="Enter Count"
-					aria-label="Enter Count"
-					aria-describedby="basic-addon2"
-					id="count"
-				/>
-				<input
-					type="search"
-					class="form-control item-name"
-					placeholder="Enter Item Name"
-					aria-label="Enter Item Name"
-					aria-describedby="basic-addon2"
-					id="item-name"
-				/>
-				<div class="input-group-append">
-					<button class="btn btn-primary" type="button" id="generate">Generate Barcode</button>
+		<div class="container p-5">
+			<div class="input-group row">
+				<div class="col-4 p-0 shadow">
+					<input
+						type="search"
+						class="form-control search"
+						placeholder="Enter Item Number"
+						aria-label="Enter Item Number"
+						aria-describedby="basic-addon2"
+						id="text"
+						maxlength="20"
+					/>
+				</div>
+				<div class="col-2 p-0 shadow">
+					<input
+						value="0"
+						min="0"
+						type="number"
+						class="form-control count"
+						placeholder="Enter Count"
+						aria-label="Enter Count"
+						aria-describedby="basic-addon2"
+						id="count"
+					/>
+				</div>
+				<div class="col-4 p-0 shadow">
+					<input
+						type="search"
+						class="form-control item-name"
+						placeholder="Enter Item Name"
+						aria-label="Enter Item Name"
+						aria-describedby="basic-addon2"
+						id="item-name"
+					/>
+				</div>
+				<div class="col-2 p-0 shadow">
+					<button class="btn btn-primary col-12" type="button" id="generate">Generate Barcode</button>
 				</div>
 			</div>
-			<button class="btn btn-outline-danger" type="button" id="remove-all">Remove All Items</button>
-			<ul class="list"></ul>
+			<div class="row">
+				<button class="btn btn-outline-danger col-2" type="button" id="remove-all">Remove All Items</button>
+				<ul class="list row"></ul>
+			</div>
 		</div>
 	</body>
 </html>

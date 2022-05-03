@@ -12,15 +12,18 @@ class ListItem {
 		this.itemNumber = itemNumber;
 		this.count = count;
 		this.itemName = itemName;
-		// this.createBarcode();
 		this.addItem();
 	}
 
 	createBarcode() {
 		const { itemNumber } = this;
 		const barcode = document.createElement("img");
-		JsBarcode(barcode, itemNumber, { text: itemNumber, height: 60 });
-		barcode.classList.add("barcode");
+		JsBarcode(barcode, itemNumber, {
+			text: itemNumber,
+			// width: 100,
+			height: 100,
+		});
+		barcode.classList.add("barcode", "p-0", "col-md-auto");
 		this.barcode = barcode;
 	}
 
@@ -31,7 +34,8 @@ class ListItem {
 		countField.setAttribute("min", "0");
 		countField.setAttribute("max", "9999");
 		countField.setAttribute("maxlength", "4");
-		countField.classList.add("form-control", "count-container");
+		countField.classList.add("col-1", "ms-5");
+		// countField.classList.add("form-control", "count-container");
 		countField.value = this.count;
 		countField.onclick = () => countField.select();
 		countField.addEventListener("keydown", () => {
@@ -46,7 +50,7 @@ class ListItem {
 	createDeleteButton() {
 		const deleteButton = document.createElement("button");
 		deleteButton.textContent = "X";
-		deleteButton.classList.add("delete-button", "btn", "btn-danger", "btn-sm");
+		deleteButton.classList.add("delete-button", "btn", "btn-danger", "btn-sm", "col-1", "ms-5");
 		deleteButton.addEventListener("click", () => {
 			this.li.remove();
 			itemsArr = itemsArr.filter(e => e !== this);
@@ -81,14 +85,24 @@ class ListItem {
 		this.createCountField();
 		this.createDeleteButton();
 		this.createEditItemNameField();
-		const bigContainer = document.createElement("div");
-		bigContainer.classList.add("big-container", "form-group");
-		bigContainer.append(this.deleteButton, this.countField);
+		// const bigContainer = document.createElement("div");
+		// bigContainer.classList.add("big-container", "form-group", "col-6");
+		// bigContainer.append(this.deleteButton, this.countField);
 		const li = document.createElement("li");
+		const firstRow = document.createElement("div");
+		const secondRow = document.createElement("div");
+		firstRow.classList.add("row", "col");
+		secondRow.classList.add("row", "col", "second-row");
+		firstRow.append(this.editItemName, this.deleteButton);
+		secondRow.append(this.barcode, this.countField);
+		li.append(firstRow, secondRow);
+		// li.append(this.editItemName, this.deleteButton, this.barcode, this.countField);
+		// li.classList.add("row", "row-cols-auto", "col-8");
+		li.classList.add("col-8");
 		this.li = li;
 		li.listItem = this;
-		li.append(this.editItemName, this.barcode);
-		li.appendChild(bigContainer);
+		// li.append(this.editItemName, this.barcode);
+		// li.appendChild(bigContainer);
 		list.appendChild(li);
 		this.resetInputValues();
 		inputText.focus();
