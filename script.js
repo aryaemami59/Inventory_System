@@ -146,7 +146,8 @@ removeAll.addEventListener("click", () => {
 
 function clickHandler() {
 	const { value } = inputText;
-	if (!value || itemsArr.includes(value)) return;
+	const itemNumbersArr = itemsArr.map(({ itemNumber }) => itemNumber);
+	if (!value || itemNumbersArr.includes(value)) return;
 	const item = new ListItem(value, countInput.value, itemNameInput.value);
 	itemsArr.push(item);
 }
