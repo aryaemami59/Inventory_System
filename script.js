@@ -44,9 +44,9 @@ class ListItem {
 		countField.setAttribute("min", "0");
 		countField.setAttribute("max", "9999");
 		countField.setAttribute("maxlength", "4");
-		countField.classList.add("col-1", "ms-5", "col-sm-1", "col-md-1", "col-lg-1", "col-xl-1", "col-xxl-1");
+		countField.classList.add("col-1", "col-sm-1", "col-md-1", "col-lg-1", "col-xl-1", "col-xxl-1");
 		// countField.classList.add("form-control", "count-container");
-		countField.value = this.count;
+		countField.value = this.count || 0;
 		countField.onclick = () => countField.select();
 		countField.addEventListener("keydown", () => {
 			if (event.which === 13) {
@@ -60,7 +60,7 @@ class ListItem {
 	createDeleteButton() {
 		const deleteButton = document.createElement("button");
 		// deleteButton.textContent = "X";
-		deleteButton.classList.add("delete-button", "btn", "btn-close", "btn-close-white", "btn-sm", "ms-5");
+		deleteButton.classList.add("delete-button", "btn", "btn-close", "btn-close-white", "btn-sm", "col-1");
 		deleteButton.setAttribute("aria-label", "Close");
 		deleteButton.setAttribute("type", "button");
 		deleteButton.addEventListener("click", () => {
@@ -89,7 +89,7 @@ class ListItem {
 
 	resetInputValues() {
 		inputText.value = "";
-		countInput.value = "0";
+		countInput.value = "";
 		itemNameInput.value = "";
 	}
 
@@ -104,8 +104,8 @@ class ListItem {
 		const li = document.createElement("li");
 		const firstRow = document.createElement("div");
 		const secondRow = document.createElement("div");
-		firstRow.classList.add("row", "col");
-		secondRow.classList.add("row", "col", "second-row");
+		firstRow.classList.add("row", "col-12");
+		secondRow.classList.add("row", "col-12", "second-row");
 		firstRow.append(this.editItemName, this.deleteButton);
 		secondRow.append(this.barcode, this.countField);
 		li.append(firstRow, secondRow);

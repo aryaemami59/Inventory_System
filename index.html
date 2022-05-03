@@ -13,7 +13,7 @@
 	<body>
 		<div class="container p-5">
 			<div class="input-group-lg row">
-				<div class="col-12 p-0 col-md-4 input-group-lg">
+				<div class="col-12 p-0 col-md-4 input-group-lg form-floating">
 					<input
 						type="search"
 						class="form-control search"
@@ -23,10 +23,10 @@
 						id="text"
 						maxlength="15"
 					/>
+					<label for="text">Enter Item Number</label>
 				</div>
-				<div class="col-12 col-md-2 p-0 input-group-lg">
+				<div class="col-12 col-md-2 p-0 input-group-lg form-floating">
 					<input
-						value="0"
 						min="0"
 						type="number"
 						class="form-control count"
@@ -35,8 +35,9 @@
 						aria-describedby="basic-addon2"
 						id="count"
 					/>
+					<label for="count">Enter Count</label>
 				</div>
-				<div class="col-12 col-md-4 p-0 input-group-lg">
+				<div class="col-12 col-md-4 p-0 input-group-lg form-floating">
 					<input
 						type="search"
 						class="form-control item-name"
@@ -45,13 +46,14 @@
 						aria-describedby="basic-addon2"
 						id="item-name"
 					/>
+					<label for="item-name">Enter Item Name</label>
 				</div>
-				<div class="col-2 p-0 input-group-lg">
-					<button class="btn btn-primary col" type="button" id="generate">Generate Barcode</button>
+				<div class="col-8 col-md-2 input-group-lg p-0">
+					<button class="btn btn-primary h-100 w-100" type="button" id="generate">Generate Barcode</button>
 				</div>
 			</div>
-			<div class="row input-group-lg">
-				<button class="btn btn-outline-danger col-2" type="button" id="remove-all">Remove All Items</button>
+			<div class="row input-group-lg form-floating">
+				<button class="btn btn-outline-danger col-8 col-md-2" type="button" id="remove-all">Remove All Items</button>
 				<ul class="list row"></ul>
 			</div>
 		</div>
