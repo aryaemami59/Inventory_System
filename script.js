@@ -59,8 +59,10 @@ class ListItem {
 
 	createDeleteButton() {
 		const deleteButton = document.createElement("button");
-		deleteButton.textContent = "X";
-		deleteButton.classList.add("delete-button", "btn", "btn-danger", "btn-sm", "ms-5");
+		// deleteButton.textContent = "X";
+		deleteButton.classList.add("delete-button", "btn", "btn-close", "btn-close-white", "btn-sm", "ms-5");
+		deleteButton.setAttribute("aria-label", "Close");
+		deleteButton.setAttribute("type", "button");
 		deleteButton.addEventListener("click", () => {
 			this.li.remove();
 			itemsArr = itemsArr.filter(e => e !== this);
