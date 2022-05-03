@@ -26,12 +26,13 @@ class ListItem {
 		barcode.classList.add(
 			"barcode",
 			"p-0",
-			"col-xl-auto",
-			"col-xxl-auto",
-			"col-lg-auto",
-			"col-md-auto",
-			"col-sm-auto",
 			"col-auto",
+			// "col-xl-auto",
+			// "col-xxl-auto",
+			// "col-lg-auto",
+			// "col-md-auto",
+			// "col-sm-auto",
+			// "col-auto",
 			"mw-75"
 		);
 		this.barcode = barcode;
@@ -44,7 +45,7 @@ class ListItem {
 		countField.setAttribute("min", "0");
 		countField.setAttribute("max", "9999");
 		countField.setAttribute("maxlength", "4");
-		countField.classList.add("col-1", "col-sm-1", "col-md-1", "col-lg-1", "col-xl-1", "col-xxl-1");
+		countField.classList.add("col-1", "col-sm-2", "col-md-1", "col-lg-1", "col-xl-1", "col-xxl-1");
 		// countField.classList.add("form-control", "count-container");
 		countField.value = this.count || 0;
 		countField.onclick = () => countField.select();
