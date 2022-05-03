@@ -122,7 +122,8 @@ class ListItem {
 		inputText.focus();
 		window.addEventListener("resize", () => (this.editItemName.style.width = `${this.barcode.offsetWidth}px`));
 		setTimeout(() => {
-			this.editItemName.style.width = `${this.barcode.offsetWidth}px`;
+			this.editItemName.style.width = window.getComputedStyle(this.barcode).width;
+			console.log(window.getComputedStyle(this.barcode).width);
 		}, 0.1);
 	}
 }
