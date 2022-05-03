@@ -23,7 +23,17 @@ class ListItem {
 			// width: 100,
 			height: 100,
 		});
-		barcode.classList.add("barcode", "p-0", "col-md-auto");
+		barcode.classList.add(
+			"barcode",
+			"p-0",
+			"col-xl-auto",
+			"col-xxl-auto",
+			"col-lg-auto",
+			"col-md-auto",
+			"col-sm-auto",
+			"col-auto",
+			"mw-75"
+		);
 		this.barcode = barcode;
 	}
 
@@ -34,7 +44,7 @@ class ListItem {
 		countField.setAttribute("min", "0");
 		countField.setAttribute("max", "9999");
 		countField.setAttribute("maxlength", "4");
-		countField.classList.add("col-1", "ms-5");
+		countField.classList.add("col-1", "ms-5", "col-sm-1", "col-md-1", "col-lg-1", "col-xl-1", "col-xxl-1");
 		// countField.classList.add("form-control", "count-container");
 		countField.value = this.count;
 		countField.onclick = () => countField.select();
@@ -50,7 +60,7 @@ class ListItem {
 	createDeleteButton() {
 		const deleteButton = document.createElement("button");
 		deleteButton.textContent = "X";
-		deleteButton.classList.add("delete-button", "btn", "btn-danger", "btn-sm", "col-1", "ms-5");
+		deleteButton.classList.add("delete-button", "btn", "btn-danger", "btn-sm", "ms-5");
 		deleteButton.addEventListener("click", () => {
 			this.li.remove();
 			itemsArr = itemsArr.filter(e => e !== this);
@@ -98,7 +108,7 @@ class ListItem {
 		li.append(firstRow, secondRow);
 		// li.append(this.editItemName, this.deleteButton, this.barcode, this.countField);
 		// li.classList.add("row", "row-cols-auto", "col-8");
-		li.classList.add("col-8");
+		li.classList.add("col-12");
 		this.li = li;
 		li.listItem = this;
 		// li.append(this.editItemName, this.barcode);
@@ -106,6 +116,7 @@ class ListItem {
 		list.appendChild(li);
 		this.resetInputValues();
 		inputText.focus();
+		window.addEventListener("resize", () => (this.editItemName.style.width = `${this.barcode.offsetWidth}px`));
 		setTimeout(() => {
 			this.editItemName.style.width = `${this.barcode.offsetWidth}px`;
 		}, 0.1);
