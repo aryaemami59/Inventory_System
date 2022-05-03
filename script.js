@@ -75,6 +75,7 @@ class ListItem {
 		editItemName.setAttribute("id", "edit-name");
 		editItemName.classList.add("form-control", "edit-name");
 		editItemName.value = this.itemName;
+		editItemName.addEventListener("click", () => editItemName.select());
 		editItemName.addEventListener("keydown", () => {
 			if (event.which === 13) {
 				this.itemName = editItemName.value;
