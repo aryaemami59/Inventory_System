@@ -12,7 +12,7 @@ class ListItem {
 		this.itemNumber = itemNumber;
 		this.count = count;
 		this.itemName = itemName;
-		this.createBarcode();
+		// this.createBarcode();
 		this.addItem();
 	}
 
@@ -77,6 +77,7 @@ class ListItem {
 	}
 
 	addItem() {
+		this.createBarcode();
 		this.createCountField();
 		this.createDeleteButton();
 		this.createEditItemNameField();
