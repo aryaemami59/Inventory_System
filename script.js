@@ -45,7 +45,7 @@ class ListItem {
 		countField.setAttribute("min", "0");
 		countField.setAttribute("max", "9999");
 		countField.setAttribute("maxlength", "4");
-		countField.classList.add("col-1", "col-sm-2", "col-md-1", "col-lg-1", "col-xl-1", "col-xxl-1");
+		countField.classList.add("col-1", "col-sm-2", "col-md-1", "col-lg-1", "col-xl-1", "col-xxl-1", "ms-3");
 		// countField.classList.add("form-control", "count-container");
 		countField.value = this.count || 0;
 		countField.onclick = () => countField.select();
@@ -61,7 +61,7 @@ class ListItem {
 	createDeleteButton() {
 		const deleteButton = document.createElement("button");
 		// deleteButton.textContent = "X";
-		deleteButton.classList.add("delete-button", "btn", "btn-close", "btn-close-white", "btn-sm", "col-1");
+		deleteButton.classList.add("delete-button", "btn", "btn-close", "btn-close-white", "btn-sm", "col-1", "ms-3");
 		deleteButton.setAttribute("aria-label", "Close");
 		deleteButton.setAttribute("type", "button");
 		deleteButton.addEventListener("click", () => {
@@ -120,10 +120,12 @@ class ListItem {
 		list.appendChild(li);
 		this.resetInputValues();
 		inputText.focus();
-		window.addEventListener("resize", () => (this.editItemName.style.width = `${this.barcode.offsetWidth}px`));
+		window.addEventListener(
+			"resize",
+			() => (this.editItemName.style.width = window.getComputedStyle(this.barcode).width)
+		);
 		setTimeout(() => {
 			this.editItemName.style.width = window.getComputedStyle(this.barcode).width;
-			console.log(window.getComputedStyle(this.barcode).width);
 		}, 0.1);
 	}
 }
