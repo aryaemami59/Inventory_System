@@ -24,16 +24,16 @@ class ListItem {
 			height: 100,
 		});
 		barcode.classList.add(
-			"barcode",
-			"p-0",
-			"col-auto",
+			"barcode"
+			// "p-0",
+			// "col-auto",
 			// "col-xl-auto",
 			// "col-xxl-auto",
 			// "col-lg-auto",
 			// "col-md-auto",
 			// "col-sm-auto",
 			// "col-auto",
-			"mw-75"
+			// "mw-75"
 		);
 		this.barcode = barcode;
 	}
@@ -45,8 +45,8 @@ class ListItem {
 		countField.setAttribute("min", "0");
 		countField.setAttribute("max", "9999");
 		countField.setAttribute("maxlength", "4");
-		countField.classList.add("col-1", "col-sm-1", "col-md-1", "col-lg-1", "col-xl-1", "col-xxl-1", "p-0");
-		// countField.classList.add("form-control", "count-container");
+		// countField.classList.add("col-1", "col-sm-1", "col-md-1", "col-lg-1", "col-xl-1", "col-xxl-1", "p-0");
+		countField.classList.add("form-control", "count-container");
 		countField.value = this.count || 0;
 		countField.onclick = () => countField.select();
 		countField.addEventListener("keydown", () => {
@@ -61,7 +61,7 @@ class ListItem {
 	createDeleteButton() {
 		const deleteButton = document.createElement("button");
 		// deleteButton.textContent = "X";
-		deleteButton.classList.add("delete-button", "btn", "btn-close", "btn-close-white", "btn-sm", "ms-2");
+		deleteButton.classList.add("delete-button", "btn", "btn-close", "btn-close-white", "btn-sm");
 		deleteButton.setAttribute("aria-label", "Close");
 		deleteButton.setAttribute("type", "button");
 		deleteButton.addEventListener("click", () => {
@@ -103,16 +103,16 @@ class ListItem {
 		// bigContainer.classList.add("big-container", "form-group", "col-6");
 		// bigContainer.append(this.deleteButton, this.countField);
 		const li = document.createElement("li");
-		const firstRow = document.createElement("div");
-		const secondRow = document.createElement("div");
-		firstRow.classList.add("row", "col-12");
-		secondRow.classList.add("row", "col-12", "second-row");
-		firstRow.append(this.editItemName, this.deleteButton);
-		secondRow.append(this.barcode, this.countField);
-		li.append(firstRow, secondRow);
-		// li.append(this.editItemName, this.deleteButton, this.barcode, this.countField);
+		// const firstRow = document.createElement("div");
+		// const secondRow = document.createElement("div");
+		// firstRow.classList.add("row", "col-12");
+		// secondRow.classList.add("row", "col-12", "second-row");
+		// firstRow.append(this.editItemName, this.deleteButton);
+		// secondRow.append(this.barcode, this.countField);
+		// li.append(firstRow, secondRow);
+		li.append(this.editItemName, this.deleteButton, this.barcode, this.countField);
 		// li.classList.add("row", "row-cols-auto", "col-8");
-		li.classList.add("col-12");
+		// li.classList.add("col-12");
 		this.li = li;
 		li.listItem = this;
 		// li.append(this.editItemName, this.barcode);
