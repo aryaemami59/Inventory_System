@@ -159,7 +159,7 @@ input.edit-name#edit-name {
 	border-bottom-right-radius: 0;
 	z-index: 1;
 	cursor: default;
-	text-align: center;
+	text-align: left;
 	width: min(66px, 100%);
 	margin-right: 0;
 	/* box-sizing: content-box; */
