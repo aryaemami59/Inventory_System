@@ -20,8 +20,8 @@ class ListItem {
 		const barcode = document.createElement("img");
 		JsBarcode(barcode, itemNumber, {
 			text: itemNumber,
-			// width: 100,
-			height: 100,
+			width: 1,
+			// height: 100,
 		});
 		barcode.classList.add(
 			"barcode"
@@ -45,6 +45,7 @@ class ListItem {
 		countField.setAttribute("min", "0");
 		countField.setAttribute("max", "9999");
 		countField.setAttribute("maxlength", "4");
+		countField.setAttribute("size", "4");
 		// countField.classList.add("col-1", "col-sm-1", "col-md-1", "col-lg-1", "col-xl-1", "col-xxl-1", "p-0");
 		countField.classList.add("form-control", "count-container");
 		countField.value = this.count || 0;
@@ -74,9 +75,14 @@ class ListItem {
 
 	createEditItemNameField() {
 		const editItemName = document.createElement("input");
+		// const editItemName = document.createElement("textarea");
 		editItemName.setAttribute("type", "text");
+		// editItemName.setAttribute("size", "15");
 		editItemName.setAttribute("id", "edit-name");
+		// editItemName.setAttribute("id", "edit-name");
 		editItemName.classList.add("form-control", "edit-name");
+		// editItemName.setAttribute("style", "height:" + editItemName.scrollHeight + "px;overflow-y:hidden;");
+		// editItemName.addEventListener("input", OnInput, false);
 		editItemName.value = this.itemName;
 		editItemName.addEventListener("click", () => editItemName.select());
 		editItemName.addEventListener("keydown", () => {
@@ -110,7 +116,27 @@ class ListItem {
 		// firstRow.append(this.editItemName, this.deleteButton);
 		// secondRow.append(this.barcode, this.countField);
 		// li.append(firstRow, secondRow);
-		li.append(this.editItemName, this.deleteButton, this.barcode, this.countField);
+		// const liContainer = document.createElement("span");
+		// liContainer.classList.add("li-container")
+		// liContainer.append(this.barcode, this.editItemName, this.deleteButton, this.countField);
+		// li.appendChild(liContainer);
+		const inputContainerCol = document.createElement("div");
+		inputContainerCol.classList.add("input-container-column");
+		const editItemNameDiv = document.createElement("div");
+		editItemNameDiv.classList.add("input-group", "input-group-lg", "input-container-name");
+		const editItemNameSpan = document.createElement("span");
+		editItemNameSpan.classList.add("input-group-text");
+		editItemNameSpan.textContent = "Item Name: ";
+		const countFieldSpan = document.createElement("span");
+		countFieldSpan.classList.add("input-group-text");
+		countFieldSpan.textContent = "Item Count: ";
+		editItemNameDiv.append(editItemNameSpan, this.editItemName);
+		const countFieldDiv = document.createElement("div");
+		countFieldDiv.classList.add("input-group", "input-group-lg", "input-container-count");
+		countFieldDiv.append(countFieldSpan, this.countField);
+		inputContainerCol.append(this.deleteButton, editItemNameDiv, countFieldDiv);
+		li.append(this.barcode, inputContainerCol);
+		// li.append(this.barcode, this.editItemName, this.deleteButton, this.countField);
 		// li.classList.add("row", "row-cols-auto", "col-8");
 		// li.classList.add("col-12");
 		this.li = li;
@@ -120,13 +146,17 @@ class ListItem {
 		list.appendChild(li);
 		this.resetInputValues();
 		inputText.focus();
-		window.addEventListener(
-			"resize",
-			() => (this.editItemName.style.width = window.getComputedStyle(this.barcode).width)
-		);
-		setTimeout(() => {
-			this.editItemName.style.width = window.getComputedStyle(this.barcode).width;
-		}, 0.1);
+		// this.editItemName.style.width = window.getComputedStyle(this.barcode).width;
+		// this.editItemName.style.width = this.barcode.offsetWidth
+		// this.editItemName.style.width = this.editItemName.value.length;
+		console.log(window.getComputedStyle(this.barcode).width);
+		// window.addEventListener(
+		// 	"resize",
+		// 	() => (this.editItemName.style.width = window.getComputedStyle(this.barcode).width)
+		// );
+		// setTimeout(() => {
+		// 	this.editItemName.style.width = window.getComputedStyle(this.barcode).width;
+		// }, 0.1);
 	}
 }
 
@@ -156,4 +186,9 @@ function clickHandler() {
 	if (!value || itemNumbersArr.includes(value)) return;
 	const item = new ListItem(value, countInput.value, itemNameInput.value);
 	itemsArr.push(item);
+}
+
+function OnInput() {
+	this.style.height = "auto";
+	this.style.height = this.scrollHeight + "px";
 }
