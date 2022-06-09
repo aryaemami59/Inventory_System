@@ -68,7 +68,7 @@ class ListItem {
 		deleteButton.addEventListener("click", () => {
 			this.li.remove();
 			itemsArr = itemsArr.filter(e => e !== this);
-			console.log(itemsArr);
+			// console.log(itemsArr);
 		});
 		this.deleteButton = deleteButton;
 	}
@@ -149,7 +149,7 @@ class ListItem {
 		// this.editItemName.style.width = window.getComputedStyle(this.barcode).width;
 		// this.editItemName.style.width = this.barcode.offsetWidth
 		// this.editItemName.style.width = this.editItemName.value.length;
-		console.log(window.getComputedStyle(this.barcode).width);
+		// console.log(window.getComputedStyle(this.barcode).width);
 		// window.addEventListener(
 		// 	"resize",
 		// 	() => (this.editItemName.style.width = window.getComputedStyle(this.barcode).width)
