@@ -93,10 +93,6 @@ class ListItem {
     this.createEditItemNameField();
     const li = document.createElement("li");
     const inputContainerCol = document.createElement("div");
-    console.log(
-      "🚀 ~ file: script.js ~ line 124 ~ ListItem ~ addItem ~ inputContainerCol",
-      inputContainerCol
-    );
     inputContainerCol.classList.add("input-container-column");
     const editItemNameDiv = document.createElement("div");
     editItemNameDiv.classList.add(
