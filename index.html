@@ -3,11 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="bootstrap.css" />
-    <link rel="stylesheet" href="style.css" />
-    <script src="generator.js" defer></script>
-    <script src="script.js" defer></script>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous" />
+    <link
+      rel="stylesheet"
+      href="styles.css" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.0/dist/JsBarcode.all.min.js"
+      defer></script>
+    <script
+      src="script.js"
+      defer></script>
     <title>Inventory</title>
   </head>
   <body>
@@ -23,8 +35,7 @@
             id="text"
             maxlength="15"
             inputmode="numeric"
-            autofocus
-          />
+            autofocus />
           <label for="text">Enter Item Number</label>
         </div>
         <div class="col-12 col-md-2 p-0 input-group-lg form-floating">
@@ -37,13 +48,11 @@
             placeholder="Enter Count"
             aria-label="Enter Count"
             aria-describedby="basic-addon2"
-            id="count"
-          />
+            id="count" />
           <label for="count">Enter Count</label>
         </div>
         <div
-          class="col-12 col-md-3 col-lg-3 col-xl-3 p-0 input-group-lg form-floating"
-        >
+          class="col-12 col-md-3 col-lg-3 col-xl-3 p-0 input-group-lg form-floating">
           <input
             type="search"
             pattern="[0-9]*"
@@ -51,16 +60,14 @@
             placeholder="Enter Item Name"
             aria-label="Enter Item Name"
             aria-describedby="basic-addon2"
-            id="item-name"
-          />
+            id="item-name" />
           <label for="item-name">Enter Item Name</label>
         </div>
         <div class="col-12 col-md-4 col-lg-3 col-xl-3 input-group-lg p-0">
           <button
             class="btn btn-primary h-100 w-100"
             type="button"
-            id="generate"
-          >
+            id="generate">
             Generate Barcode
           </button>
         </div>
@@ -69,8 +76,7 @@
         <button
           class="btn btn-outline-danger col-12 col-md-6 col-xl-3"
           type="button"
-          id="remove-all"
-        >
+          id="remove-all">
           Remove All Items
         </button>
         <ul class="list"></ul>

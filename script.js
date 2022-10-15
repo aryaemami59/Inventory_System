@@ -158,5 +158,5 @@ function clickHandler() {
 
 function OnInput() {
   this.style.height = "auto";
-  this.style.height = this.scrollHeight + "px";
+  this.style.height = `${this.scrollHeight}px`;
 }
